@@ -1,30 +1,80 @@
-/* Styling for overall map container */
-html,             /*apply this to the HTML element*/
-body,             /*apply this to the body element*/
-#viewDiv {        /*apply this to the viewDiv element*/
-  padding: 0;     /*no borders*/
+/* Set initial containers */
+html, body {
   margin: 0;
-  height: 100vh;   /*make this map as tall and wide as the screen*/
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/*-------------------------------------------------------------------*/
+
+/* Hide all state sections by default so they don't stack */
+.state_section {
+  display: none;
   width: 100vw;
+  height: 100vh;
+}
+
+/* Tie section visibility to the "active" class */
+.state_section.active {
+  display: block;
+}
+
+/* Tells every border to draw inward from the box, not outward (which could cause overlap and sizing issues) */
+* {
+  box-sizing: border-box;
+}
+/*-------------------------------------------------------------------*/
+
+.title_bar {
+  width: 100vw;
+  height: 25px; /*if I make this vh, I risk shrinking it to invisibility on smaller screens */
+  padding: 25px;
+  border-bottom: 2px solid black;
+  margin-bottom: 3px;
+}
+
+.landing_pg {
+  width: 100vw;
+  height: 85vh;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin-bottom: 3px;
+}
+
+.next_btn {
+  height: 40px;
+}
+
+.prev_btn {
+  height: 40px;
+}
+
+.instruct_box {
+  width: 30vw;
+  height: 80vh;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  margin-bottom: 3px;
+  float:left;
+}
+
+.map_container {
+  width: 70vw;
+  height: 80vh;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  margin-bottom: 3px;
+  float:left;
+  padding: 0;
   overflow: hidden;
 }
-
-/*Styling for survey link button */
-.addRecordBtn {
-  position: absolute;
-  z-index: 10;
-  top: 10px;
-  right: 10px;
-  background-color: #0079c1;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.addRecordBtn:hover {
-  background-color: #005a87;
+.txt_box {
+  width: 85vw;
+  height: 15vh;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  float:right;
 }

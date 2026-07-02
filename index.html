@@ -7,7 +7,7 @@
                             <!-- (content="initial-scale=1") sets the initial zoom level when the page first loads")-->
                              <!-- (content="maximum-scale=1") sets the maximum zoom level allowed by the user -->
                              <!-- (content="user-scalable=no") disables the user's ability to zoom in or out using pinch to zoom -->
-  <title> Lab 4 for Geography 576 </title>
+  <title> VIP: Very Important Places </title>
 
   <!--importing css and libraries for esri.js-->
   <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">  <!--linking to ESRI API's stylesheet-->
@@ -20,9 +20,60 @@
 </head>
 
 <body>                    <!--visible on browser-->
-  <a href="https://arcg.is/uKSfS0" target="_blank" class="addRecordBtn">Add Record</a>
   <div id="viewDiv"></div>  <!--creates a div element for the ArcGIS API script to fill-->
   <script src="main.js"></script>   <!--script tag for our own JS script-->
+
+  <!-- Div containers for States -->
+<div id="app-container">
+    
+    <!-- State 1 Section -->
+    <section id="State_1" class="state_section">
+        <div class = "title_bar"> VIP: Very Important Places</div>
+        <div class="landing_pg">Instructions for how to complete assignment</div>
+        <button class="next_btn" onclick="showNextState()">Next</button>
+    </section>
+
+    <!-- State 2 Section -->
+    <section id="State_2" class="state_section">
+        <div class = "title_bar"> State 2</div>
+        <div class = "instruct_box"> contains text from Polybius' Histories</div>
+        <div class = "map_container" id="mapView_S2"></div>
+        <div class = "txt_box"> instructions for students to hold discussion abotu source analysis/answer related worksheet</div>
+        <button class = "prev_btn" onclick="showPrevState()"> Previous</button>
+        <button class="next_btn" onclick="showNextState()">Next</button>
+    </section>
+
+    <!-- State 3 Section -->
+    <section id="State_3" class="state_section">
+        <div class = "title_bar"> State 3</div>
+        <div class = "instruct_box"> contains instructions for selecting a point and providing rationale in the box below</div>
+        <div class = "map_container" id="mapView_S3"> </div>
+        <div class = "txt_box"> in the map above, select "New Feature", choose your point, and provide your response in Point_Rationale </div>
+        <button class = "prev_btn" onclick="showPrevState()"> Previous</button>
+        <button class="next_btn" onclick="showNextState()">Next</button>
+    </section>
+
+    <!-- State 4 Section -->
+    <section id="State_4" class="state_section">
+        <div class = "title_bar"> State 4</div>
+        <div class = "instruct_box"> contains text from Polybius' Histories</div>
+        <div class = "map_container" id="mapView_S4"> </div>
+        <div class = "txt_box">
+            <label for="responseInput">Your Response</label>
+            <textarea id="responseInput" rows="3" cols="50"></textarea>
+            <button onclick="saveResponse()">Submit Response</button>
+        </div>
+        <button class = "prev_btn" onclick="showPrevState()"> Previous</button>
+        <button class="next_btn" onclick="showNextState()">Next</button>
+    </section>
+
+    <!-- State 5 Section -->
+    <section id="State_5" class="state_section">
+        <div class = "title_bar"> State 5</div>
+        <div class="landing_pg">contains article link and instructions for article analysis</div>
+        <button class = "prev_btn" onclick="showPrevState()"> Previous</button>
+    </section>
+</div>
 
 </body>
 
