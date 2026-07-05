@@ -53,22 +53,27 @@ require([                         // Links back to ESRI API's files (one of the 
     url: MAP_CONFIG.urls.inputLayer
   });
 
-  const birdSymbol = new PictureMarkerSymbol({
-    url: 
-    width:
-    height:
-  });
+  // 1. Define the symbol
+  const birdSymbol = {
+    type: "picture-marker",
+   url: "https://raw.githubusercontent.com/Nkositzke22/G576_Midterm/main/bird_icon_glow.png",
+   width: "32px",
+   height: "32px"
+  };
 
-  const birdRenderer = new SimpleRenderer({
+  // 2. Define the renderer
+  const birdRenderer = {
+    type: "simple", // This must be "simple" for a feature layer
     symbol: birdSymbol
-  });
+  };
 
-  imputLayer.renderer = birdRenderer;
-
+  // 3. Apply it to your layer
+  inputLayer.renderer = birdRenderer;
+  
   // ==========================================
   // 4. UI/WIDGETS
   // ==========================================
-    //4a- Creating the widgets
+    //Creating the widgets
   const searchWidget = new Search({     // creates the search  widget 
     view:view                           // links widget to specific map view (widget needs to know which map view to search)
   });
@@ -79,7 +84,7 @@ require([                         // Links back to ESRI API's files (one of the 
 
 
 
-    //4b Nesting widgets
+    //Nesting widgets
   const searchExpand = new Expand({     
     view: view,
     content: searchWidget,              // tells the Expand container to hold the search widget
@@ -101,10 +106,15 @@ require([                         // Links back to ESRI API's files (one of the 
         deleteEnabled: true
     }]
   });
-  view.ui.add(editor, "top-right");
 
+  const editorExpand = new Expand({
+    view: view,
+    content: editor, 
+    expandIcon: "pencil",
+    group: "top-left"
+  });
 
-    //4c- Adding widgets to view
+    //- Adding widgets to view
   view.ui.add(searchExpand, {           // adds the searchExpand widget to the map view      
     position: "top-left",               // positions the widget
     index: 0                            // stacks at the top of the expand stack (top corner of screen)
@@ -114,6 +124,8 @@ require([                         // Links back to ESRI API's files (one of the 
     position: "top-left",               // positions the widget
     index: 1                            // stacks at the top of the expand stack (top corner of screen)
   });
+
+  view.ui.add(editorExpand, "top-left");
 
   // ==========================================
   // 5. HANDLING ERRORS

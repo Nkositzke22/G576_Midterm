@@ -1,11 +1,37 @@
-/* Styling for overall map container */
-html,             /*apply this to the HTML element*/
-body,             /*apply this to the body element*/
-#viewDiv {        /*apply this to the viewDiv element*/
-  padding: 0;     /*no borders*/
+/* 1. Global Setup */
+html, body {
   margin: 0;
-  height: 100vh;   /*make this map as tall and wide as the screen*/
+  padding: 0;
+  height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  display: flex;          
+  flex-direction: column; 
+  overflow: hidden;       
 }
 
+/* 2. Header Styling (Updated to target #titleDiv) */
+#titleDiv {
+  height: 40px;
+  width: 100%;
+  background-color: #947A32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 100;
+  box-sizing: border-box; 
+}
+
+#titleDiv h1 {
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  margin: 0;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+}
+
+/* 3. Map Container Styling */
+#viewDiv {
+  flex-grow: 1; 
+  width: 100%;  
+}
