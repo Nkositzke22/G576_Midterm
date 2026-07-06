@@ -19,4 +19,4 @@ The Bird Sighting Tracker is an interactive web mapping application developed as
 You can view the live application directly in your web browser via GitHub Pages
 
 ### Attributions
-- **Bird Icon**: Bird by Muh Syafri from the [Noun Project](https://thenounproject.com) (CC BY 3.0).
+- **Bird Icon**: Bird by Muh Syafri from the [Noun Project](https://thenounproject.com) (CC BY 3.0). 
