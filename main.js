@@ -28,6 +28,12 @@ require([                         // Links back to ESRI API's files (one of the 
     }
   };
 
+  // [H. McBride: Added Global Popup Template, 07/08/2026, based off of G576 Lab 2]
+  const popupBirds = {
+    title: "Bird Sighting Details",
+    content: "<b>Bird Type:</b> {Bird_Type}<br><b>Sighting Time:</b> {Sighting_Time}<br>"
+  }
+
   // ==========================================
   // 2. DOM ELEMENTS AND INITIALIZATION
   // ==========================================
@@ -48,9 +54,11 @@ require([                         // Links back to ESRI API's files (one of the 
   // Graphics logic
 
 
-  // Feature Layers
+  // Feature Layers [H. McBride: Added outfields and popup to the feature layer, 07/08/2026]
   const inputLayer = new FeatureLayer({
-    url: MAP_CONFIG.urls.inputLayer
+    url: MAP_CONFIG.urls.inputLayer,
+    outFields: ["Bird_Type", "Sighting_Time"],
+    popupTemplate: popupBirds
   });
 
   // Create symbol for usage as point marker
